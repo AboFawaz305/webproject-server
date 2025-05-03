@@ -19,14 +19,3 @@ CREATE TABLE IF NOT EXISTS Articles (
   quote VARCHAR(255),
   FOREIGN KEY(author_id) REFERENCES Users(user_id)
 );
-
-CREATE TABLE IF NOT EXISTS Comments (
-  comment_id INT AUTO_INCREMENT PRIMARY KEY,
-  commenter_id INT NOT NULL,
-  comment_article_id INT NOT NULL,
-  content VARCHAR(255),
-  comment_datetime DATETIME DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY(commenter_id) REFERENCES Users(user_id),
-  FOREIGN KEY(comment_article_id) REFERENCES Articles(article_id)
-);
-
